@@ -25,3 +25,13 @@ class Departments { // creating class
     };
 };
 
+// Task 3: Create a Manager Class that Inherits from Employee
+class Manager extends Employee { // new manager class that extends within employee class
+    constructor(name, salary, position, department, bonus) { // add bonus parameter specific to managers
+        super(name, salary, position, department); // call parent class => initiate inherited parameters from Employee class
+        this.bonus = bonus; // initiate bonus by putting value into parameters 
+    };
+    getDetails() {
+        return `Employee Name: ${this.name}, Salary: $${this.salary}, Position: ${this.position}, Bonus: $${this.bonus}`;
+    }; // add bonus to getDetails string
+}; 
