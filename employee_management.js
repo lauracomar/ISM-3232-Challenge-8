@@ -23,6 +23,14 @@ class Departments { // creating class
     getDepartmentSalary() { // calculate total salary of employees in department
         return this.employees.reduce((total, employee) => total + employee.salary, 0); // use "reduce" to go over each employee and get salary
     };
+    // Task 4: Handle Bonuses for Managers (builds on task 2)
+    calculateTotalSalaryWithBonus() { // add new method into Department class
+        return this.employees.reduce((total, employee) => { // use reduce to go ogver employees array and get total salary
+            if (employee instanceof Manager) { // check if employee is manager 
+                return total + employee.salary + employee.bonus; // if employee is manager add bonus to salary
+            };
+        }, 0);
+    };
 };
 
 // Task 3: Create a Manager Class that Inherits from Employee
@@ -34,4 +42,4 @@ class Manager extends Employee { // new manager class that extends within employ
     getDetails() {
         return `Employee Name: ${this.name}, Salary: $${this.salary}, Position: ${this.position}, Bonus: $${this.bonus}`;
     }; // add bonus to getDetails string
-}; 
+};
